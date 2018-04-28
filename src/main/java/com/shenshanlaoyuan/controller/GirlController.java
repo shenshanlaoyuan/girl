@@ -3,6 +3,8 @@ package com.shenshanlaoyuan.controller;
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.shenshanlaoyuan.repository.GirlRepository;
 import com.shenshanlaoyuan.domain.Girl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +20,15 @@ public class GirlController {
     @Autowired
     private GirlRepository girlRepository;
 
+    private final static Logger logger = LoggerFactory.getLogger(GirlController.class);
+
     /**
      * 获取女生列表
      * @return
      */
     @GetMapping("/girls")
     public List<Girl> girlList(){
+        logger.info("girlList");
         return  girlRepository.findAll();
     }
 
