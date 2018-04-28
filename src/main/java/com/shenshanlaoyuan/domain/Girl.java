@@ -3,6 +3,7 @@ package com.shenshanlaoyuan.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 /**
  * Created by shenshanlaoyuan on 2018/4/27.
@@ -12,6 +13,7 @@ public class Girl {
     @Id
     @GeneratedValue
     private Integer id;
+    @Min(value = 18,message = "未成年少女禁止入内")
     private Integer age;
     private String cupSize;
 
